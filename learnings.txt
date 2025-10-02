@@ -1,0 +1,79 @@
+npm init -y
+- initializes a new Node.js project with default package.json file.
+- package.json stores project info (name, version, dependencies, scripts, etc.).
+- The -y flag skips manual input and uses default values (automatically answers yes to all prompts).
+
+npm install express mongoose dotenv cors cookie-parser
+
+Package Explanations:
+1. express
+- Node.js framework for building webservers and REST APIs.
+- Handles HTTP requests and routing (GET, POST, PUT, DELETE).
+- Lets us add middleware for cross-cutting concerns like authentication, logging, error handling.
+
+2. mongoose
+- An Object Data Modeling library for MongoDB.
+- Provides schemas to define data structure, validation and relationships.
+- Simplifies CRUD operations with methods like .find(), .create(), updateOne().
+- Supports middleware/hooks to run code like hashing passwords before saving.
+
+3. dotenv
+- Loads enviroment variables from a .env file into current node process (process.env).
+- Keeps sensitive informations (DB URI, JWT secrets) out of source code.
+- Allows different configurations for development, staging, and production.
+
+4. cors
+- Middleware for handling Cross-Origin Resource Sharing
+- Browsers block requests from a frontend domain that's different from the backend (same-origin policy).
+- CORS allows selected domains (origins) to call our backend safely.
+
+5. cookie-parser
+- Parses cookies attached to HTTP requests.
+- Essential for reading HTTP-only cookies which are more secure than storing JWTs in localStorage.
+- Lets the server read and validate tokens stored in cookies.
+
+6. bcryptjs
+- A password-hashing library.
+- bcrypt hashes passwords with salt, making it extremely hard for attackers to reverse.
+
+7. jsonwebtoken
+- Library for creating and verifying JWTs (JSON Web Tokens).
+- JWTs allow stateless authentication (no server session storage needed).
+- Contains encoded user info (id, role) and is signed to prevent tampering.
+
+8. express-rate-limit
+- Middleware to limit the number of requests per IP.
+- Prevents brute-force attacks (guessing passwords repeatedly).
+- Limits DoS (Denial-of-Service) attacks.
+
+9. helmet
+- Security middleware for HTTP headers.
+- Sets headers like:
+  - X-Content-Type-Options -> prevent MIME sniffing
+  - X-Frame-Options -> prevent clickjacking
+  - Content-Security-Policy -> mitigate XSS (Cross-Site Scripting) attacks
+
+10. csurf
+- CSRF (Cross-Site Request Forgery) protection middleware.
+- CSRF occurs when a malicious site tricks a logged-in user into performing actions on our site.
+- cusrf ensures a token must be present and valid in requests that modify data.
+
+11. validator
+- String validation and sanitization library.
+- Ensures email, URLs, or usernames are valid.
+- Sanitizes input to remove malicious scripts.
+
+12. morgan
+- HTTP request logger middleware.
+- Logs all incoming requests in dev console: method, URL, status, response time.
+- Helps debugging API calls and checking traffic patterns.
+
+13. nodemon
+- Automatically restarts Node.js server when a change is made.
+- Speeds up development.
+- No need to manually restart server after every edits.
+
+14. eslint
+- Static code analysis and linting tool.
+- Enforces coding standards.
+- Detects potential errors (e.g. undefined variables, unused imports).
